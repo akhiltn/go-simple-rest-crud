@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/akhiltn/go-simple-rest-crud/router"
+)
 
 func main() {
-	fmt.Println("vim-go")
+	fmt.Println("MongoDB API")
+	r := router.Router()
+	log.Fatal(http.ListenAndServe(":4000", r))
+	fmt.Println("Server is started at port :4000")
 }
